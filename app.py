@@ -24,26 +24,63 @@ st.markdown(
     """
     <style>
 
-    /* ---------- Global ---------- */
+    /* =========================================================
+       GLOBAL FONT & TEXT COLORS
+       ========================================================= */
 
     .stApp {
         background-color: #f7f8fa;
+        color: #111827;
     }
 
-    .main {
-        color: #1f2937;
+    /* Main application text */
+    .main,
+    .main * {
+        color: #111827;
     }
 
-    h1, h2, h3, h4 {
-        color: #172033 !important;
+    /* Streamlit headings */
+    h1, h2, h3, h4, h5, h6 {
+        color: #111827 !important;
         font-weight: 600 !important;
     }
 
-    p, label, span, div {
-        font-family: "Inter", "Segoe UI", sans-serif;
+    /* Markdown text */
+    .stMarkdown,
+    .stMarkdown p,
+    .stMarkdown span,
+    .stMarkdown div {
+        color: #111827 !important;
     }
 
-    /* ---------- Sidebar ---------- */
+    /* Labels */
+    label,
+    [data-testid="stWidgetLabel"],
+    [data-testid="stWidgetLabel"] p {
+        color: #111827 !important;
+    }
+
+    /* Input text */
+    input,
+    textarea,
+    select {
+        color: #111827 !important;
+    }
+
+    /* Selectbox text */
+    div[data-baseweb="select"] * {
+        color: #111827 !important;
+    }
+
+    /* Dataframe text */
+    [data-testid="stDataFrame"] * {
+        color: #111827 !important;
+    }
+
+
+    /* =========================================================
+       SIDEBAR
+       ========================================================= */
 
     section[data-testid="stSidebar"] {
         background-color: #172033;
@@ -54,11 +91,15 @@ st.markdown(
     }
 
     section[data-testid="stSidebar"] .stRadio label {
+        color: #ffffff !important;
         padding: 8px 5px;
         font-size: 14px;
     }
 
-    /* ---------- Header ---------- */
+
+    /* =========================================================
+       APPLICATION HEADER
+       ========================================================= */
 
     .app-header {
         padding: 8px 0 18px 0;
@@ -69,16 +110,32 @@ st.markdown(
     .app-title {
         font-size: 30px;
         font-weight: 650;
-        color: #172033;
+        color: #111827 !important;
         margin-bottom: 4px;
     }
 
     .app-subtitle {
         font-size: 14px;
-        color: #6b7280;
+        color: #374151 !important;
     }
 
-    /* ---------- Cards ---------- */
+
+    /* =========================================================
+       SECTION TITLES
+       ========================================================= */
+
+    .section-title {
+        color: #111827 !important;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+
+    /* =========================================================
+       METRIC CARDS
+       ========================================================= */
 
     .metric-card {
         background: #ffffff;
@@ -90,52 +147,81 @@ st.markdown(
     }
 
     .metric-label {
-        color: #6b7280;
+        color: #374151 !important;
         font-size: 13px;
         margin-bottom: 8px;
     }
 
     .metric-value {
-        color: #172033;
+        color: #111827 !important;
         font-size: 28px;
         font-weight: 650;
     }
 
-    /* ---------- Section ---------- */
 
-    .section-title {
-        color: #172033;
-        font-size: 20px;
-        font-weight: 600;
-        margin-top: 20px;
-        margin-bottom: 15px;
-    }
-
-    /* ---------- Buttons ---------- */
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
 
     .stButton > button {
         border-radius: 6px;
         font-weight: 500;
         border: 1px solid #cbd1d9;
+        color: #111827 !important;
+        background-color: #ffffff;
     }
 
-    /* ---------- Tables ---------- */
+    .stButton > button:hover {
+        border-color: #172033;
+    }
+
+
+    /* =========================================================
+       FORM INPUTS
+       ========================================================= */
+
+    .stTextInput input,
+    .stTextArea textarea,
+    .stNumberInput input,
+    .stDateInput input,
+    .stTimeInput input {
+        color: #111827 !important;
+        background-color: #ffffff !important;
+    }
+
+
+    /* =========================================================
+       INFO / SUCCESS / WARNING / ERROR TEXT
+       ========================================================= */
+
+    [data-testid="stAlert"] p,
+    [data-testid="stAlert"] div {
+        color: #111827 !important;
+    }
+
+
+    /* =========================================================
+       TABLE
+       ========================================================= */
 
     .dataframe {
         border: 1px solid #e2e5e9;
     }
 
-    /* ---------- Alerts ---------- */
 
-    div[data-testid="stAlert"] {
-        border-radius: 7px;
+    /* =========================================================
+       CAPTIONS
+       ========================================================= */
+
+    .stCaption,
+    [data-testid="stCaptionContainer"] {
+        color: #374151 !important;
     }
 
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # ============================================================
 # SUPABASE CONNECTION
