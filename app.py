@@ -180,7 +180,7 @@ def safe_float(value):
 # SIDEBAR
 # ============================================================
 
-st.sidebar.markdown(
+st.sidebar.markdown("""
     """
     <div style="padding: 10px 0 25px 0;">
         <div style="
@@ -200,7 +200,7 @@ st.sidebar.markdown(
         </div>
     </div>
     """,
-    unsafe_allow_html=True
+   """, unsafe_allow_html=True
 )
 
 page = st.sidebar.radio(
