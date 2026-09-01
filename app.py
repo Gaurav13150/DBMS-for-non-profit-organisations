@@ -24,220 +24,273 @@ st.markdown(
     """
     <style>
 
-    /* =========================================================
-       GLOBAL FONT & TEXT COLORS
-       ========================================================= */
+    /* =====================================================
+       BASE
+       ===================================================== */
 
     .stApp {
-        background-color: #f7f8fa;
+        background-color: #f5f7fa;
         color: #111827;
     }
 
-    /* Main application text */
-    .main,
-    .main * {
-        color: #111827;
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+        max-width: 1400px;
     }
 
-    /* Streamlit headings */
+    /* Main headings */
     h1, h2, h3, h4, h5, h6 {
         color: #111827 !important;
-        font-weight: 600 !important;
     }
 
-    /* Markdown text */
-    .stMarkdown,
-    .stMarkdown p,
-    .stMarkdown span,
-    .stMarkdown div {
-        color: #111827 !important;
-    }
-
-    /* Labels */
-    label,
-    [data-testid="stWidgetLabel"],
-    [data-testid="stWidgetLabel"] p {
-        color: #111827 !important;
-    }
-
-    /* Input text */
-    input,
-    textarea,
-    select {
-        color: #111827 !important;
-    }
-
-    /* Selectbox text */
-    div[data-baseweb="select"] * {
-        color: #111827 !important;
-    }
-
-    /* Dataframe text */
-    [data-testid="stDataFrame"] * {
-        color: #111827 !important;
+    /* Normal text */
+    p {
+        color: #374151;
     }
 
 
-    /* =========================================================
+    /* =====================================================
        SIDEBAR
-       ========================================================= */
+       ===================================================== */
 
     section[data-testid="stSidebar"] {
         background-color: #172033;
     }
 
-    section[data-testid="stSidebar"] * {
+    section[data-testid="stSidebar"] p {
+        color: #d1d5db !important;
+    }
+
+    section[data-testid="stSidebar"] label {
         color: #ffffff !important;
     }
 
-    section[data-testid="stSidebar"] .stRadio label {
-        color: #ffffff !important;
-        padding: 8px 5px;
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    .app-header {
+        background-color: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-left: 5px solid #a7834f;
+        border-radius: 10px;
+
+        padding: 22px 25px;
+        margin-bottom: 25px;
+
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .app-title {
+        color: #111827 !important;
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .app-subtitle {
+        color: #6b7280 !important;
         font-size: 14px;
     }
-# ============================================================
-# SUPABASE CONNECTION
-# ============================================================
-
-try:
-    SUPABASE_URL = st.secrets["SUPABASE_URL"]
-    SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
-
-    supabase = create_client(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    )
-
-except Exception as e:
-    st.error("Unable to connect to the Supabase database.")
-    st.info(
-        "Check that SUPABASE_URL and SUPABASE_KEY are correctly "
-        "configured in Streamlit Secrets."
-    )
-    st.stop()
 
 
-# ============================================================
-# HELPER FUNCTIONS
-# ============================================================
+    /* =====================================================
+       SECTION TITLES
+       ===================================================== */
 
-def get_events():
-    response = (
-        supabase
-        .table("events")
-        .select("*")
-        .order("event_date", desc=True)
-        .execute()
-    )
-    return response.data or []
+    .section-title {
+        color: #111827 !important;
 
+        font-size: 19px;
+        font-weight: 600;
 
-def get_people():
-    response = (
-        supabase
-        .table("volunteers_staff")
-        .select("*")
-        .order("name")
-        .execute()
-    )
-    return response.data or []
+        margin-top: 25px;
+        margin-bottom: 15px;
+
+        padding-left: 10px;
+
+        border-left: 3px solid #a7834f;
+    }
 
 
-def get_expenses():
-    response = (
-        supabase
-        .table("expenses")
-        .select("*")
-        .order("expense_date", desc=True)
-        .execute()
-    )
-    return response.data or []
+    /* =====================================================
+       DASHBOARD CARDS
+       ===================================================== */
+
+    .metric-card {
+        background-color: #ffffff;
+
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+
+        padding: 20px;
+
+        min-height: 115px;
+
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .metric-label {
+        color: #6b7280 !important;
+
+        font-size: 12px;
+        font-weight: 600;
+
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+
+        margin-bottom: 8px;
+    }
+
+    .metric-value {
+        color: #111827 !important;
+
+        font-size: 28px;
+        font-weight: 700;
+    }
 
 
-def get_resources():
-    response = (
-        supabase
-        .table("resources")
-        .select("*")
-        .order("resource_id", desc=True)
-        .execute()
-    )
-    return response.data or []
+    /* =====================================================
+       FORMS
+       ===================================================== */
+
+    div[data-testid="stForm"] {
+        background-color: #ffffff;
+
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+
+        padding: 22px;
+
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
 
 
-def format_currency(value):
-    return f"₹{value:,.2f}"
+    /* =====================================================
+       INPUTS
+       ===================================================== */
+
+    input,
+    textarea {
+        color: #111827 !important;
+        background-color: #ffffff !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #9ca3af !important;
+    }
 
 
-def safe_float(value):
-    try:
-        return float(value)
-    except:
-        return 0.0
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    .stButton button {
+        background-color: #172033;
+        color: #ffffff !important;
+
+        border: 1px solid #172033;
+        border-radius: 6px;
+
+        padding: 8px 18px;
+
+        font-weight: 600;
+    }
+
+    .stButton button:hover {
+        background-color: #26344d;
+        border-color: #26344d;
+        color: #ffffff !important;
+    }
+
+    .stFormSubmitButton button {
+        background-color: #172033;
+        color: #ffffff !important;
+
+        border: 1px solid #172033;
+        border-radius: 6px;
+
+        font-weight: 600;
+    }
+
+    .stFormSubmitButton button:hover {
+        background-color: #26344d;
+        border-color: #26344d;
+    }
 
 
-# ============================================================
-# SIDEBAR
-# ============================================================
+    /* =====================================================
+       SELECT BOX
+       ===================================================== */
 
-st.sidebar.markdown("""
-    """
-    <div style="padding: 10px 0 25px 0;">
-        <div style="
-            font-size:20px;
-            font-weight:650;
-            color:white;
-        ">
-            DevatmaShakti Ashram
-        </div>
-
-        <div style="
-            font-size:12px;
-            color:#b8c0cc;
-            margin-top:4px;
-        ">
-            Event Management System
-        </div>
-    </div>
-    """,
-   """, unsafe_allow_html=True
-)
-
-page = st.sidebar.radio(
-    "Navigation",
-    [
-        "Dashboard",
-        "Events",
-        "Volunteers & Staff",
-        "Expenses",
-        "Resources",
-        "Reports & Analytics"
-    ]
-)
-
-st.sidebar.markdown("---")
-
-st.sidebar.caption("Database: Supabase PostgreSQL")
-st.sidebar.caption("Application: Streamlit")
+    div[data-baseweb="select"] > div {
+        background-color: #ffffff;
+        border-color: #d1d5db;
+        border-radius: 6px;
+    }
 
 
-# ============================================================
-# PAGE HEADER
-# ============================================================
+    /* =====================================================
+       TABLE
+       ===================================================== */
 
-st.markdown("""
-    f"""
-    <div class="app-header">
-        <div class="app-title">{page}</div>
-        <div class="app-subtitle">
-            DevatmaShakti Ashram Event Management System
-        </div>
-    </div>
+    div[data-testid="stDataFrame"] {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       METRICS
+       ===================================================== */
+
+    div[data-testid="stMetric"] {
+        background-color: #ffffff;
+
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+
+        padding: 15px;
+    }
+
+
+    /* =====================================================
+       DIVIDER
+       ===================================================== */
+
+    hr {
+        border: none;
+        border-top: 1px solid #e5e7eb;
+        margin: 25px 0;
+    }
+
+
+    /* =====================================================
+       ALERTS
+       ===================================================== */
+
+    div[data-testid="stAlert"] {
+        border-radius: 7px;
+    }
+
+
+    /* =====================================================
+       DOWNLOAD BUTTON
+       ===================================================== */
+
+    .stDownloadButton button {
+        border-radius: 6px;
+        font-weight: 600;
+    }
+
+    </style>
     """,
     unsafe_allow_html=True
 )
-
-
 # ============================================================
 # DASHBOARD
 # ============================================================
