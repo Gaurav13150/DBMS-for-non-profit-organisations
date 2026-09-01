@@ -312,7 +312,7 @@ if page == "Dashboard":
         )
 
     with c4:
-        st.markdown(
+        st.markdown("""
             f"""
             <div class="metric-card">
                 <div class="metric-label">Total Expenses</div>
