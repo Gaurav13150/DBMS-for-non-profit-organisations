@@ -225,7 +225,7 @@ st.sidebar.caption("Application: Streamlit")
 # PAGE HEADER
 # ============================================================
 
-st.markdown(
+st.markdown("""
     f"""
     <div class="app-header">
         <div class="app-title">{page}</div>
