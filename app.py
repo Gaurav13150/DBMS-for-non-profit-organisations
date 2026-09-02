@@ -477,17 +477,17 @@ if page == "Dashboard":
         )
 
     with c4:
-        st.markdown("""
-            f"""
-            <div class="metric-card">
-                <div class="metric-label">Total Expenses</div>
-                <div class="metric-value">
-                    {format_currency(total_expenses)}
-                </div>
+    st.markdown(
+        f"""
+        <div class="metric-card">
+            <div class="metric-label">Total Expenses</div>
+            <div class="metric-value">
+                {format_currency(total_expenses)}
             </div>
-            ,
-            unsafe_allow_html=True
-        )
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     st.markdown("<br>", unsafe_allow_html=True)
 
