@@ -21,26 +21,28 @@ st.set_page_config(
 # ============================================================
 
 st.markdown(
+    """
     <style>
 
-    /* =====================================================
-       BASE
-       ===================================================== */
+    /* ============================================================
+       GLOBAL APPLICATION
+       ============================================================ */
 
     .stApp {
-        background-color: #f5f7fa;
+        background-color: #f4f6f8;
         color: #111827;
     }
 
     .block-container {
+        max-width: 1400px;
         padding-top: 2rem;
         padding-bottom: 3rem;
-        max-width: 1400px;
     }
 
     /* Main headings */
     h1, h2, h3, h4, h5, h6 {
         color: #111827 !important;
+        font-weight: 600 !important;
     }
 
     /* Normal text */
@@ -49,55 +51,74 @@ st.markdown(
     }
 
 
-    /* =====================================================
+    /* ============================================================
        SIDEBAR
-       ===================================================== */
+       ============================================================ */
 
     section[data-testid="stSidebar"] {
         background-color: #172033;
     }
 
     section[data-testid="stSidebar"] p {
-        color: #d1d5db !important;
+        color: #cbd5e1 !important;
     }
 
     section[data-testid="stSidebar"] label {
         color: #ffffff !important;
     }
 
+    section[data-testid="stSidebar"] .stMarkdown {
+        color: #ffffff !important;
+    }
 
-    /* =====================================================
-       HEADER
-       ===================================================== */
+    section[data-testid="stSidebar"] hr {
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+
+    /* ============================================================
+       APPLICATION HEADER
+       ============================================================ */
 
     .app-header {
         background-color: #ffffff;
-        border: 1px solid #e5e7eb;
+
+        border: 1px solid #e2e8f0;
         border-left: 5px solid #a7834f;
+
         border-radius: 10px;
 
-        padding: 22px 25px;
-        margin-bottom: 25px;
+        padding: 22px 26px;
 
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        margin-bottom: 26px;
+
+        box-shadow:
+            0 3px 10px rgba(15, 23, 42, 0.05);
     }
 
     .app-title {
         color: #111827 !important;
+
         font-size: 30px;
         font-weight: 700;
-        margin-bottom: 5px;
+
+        line-height: 1.2;
+
+        margin-bottom: 6px;
     }
 
     .app-subtitle {
-        color: #6b7280 !important;
+        color: #64748b !important;
+
         font-size: 14px;
+
+        line-height: 1.5;
     }
 
 
-    /* =====================================================
+    /* ============================================================
        SECTION TITLES
-       ===================================================== */
+       ============================================================ */
 
     .section-title {
         color: #111827 !important;
@@ -105,40 +126,44 @@ st.markdown(
         font-size: 19px;
         font-weight: 600;
 
-        margin-top: 25px;
+        margin-top: 24px;
         margin-bottom: 15px;
 
-        padding-left: 10px;
+        padding-left: 11px;
 
         border-left: 3px solid #a7834f;
     }
 
 
-    /* =====================================================
-       DASHBOARD CARDS
-       ===================================================== */
+    /* ============================================================
+       DASHBOARD METRIC CARDS
+       ============================================================ */
 
     .metric-card {
         background-color: #ffffff;
 
-        border: 1px solid #e5e7eb;
+        border: 1px solid #e2e8f0;
+
         border-radius: 10px;
 
         padding: 20px;
 
         min-height: 115px;
 
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        box-shadow:
+            0 3px 10px rgba(15, 23, 42, 0.04);
     }
 
     .metric-label {
-        color: #6b7280 !important;
+        color: #64748b !important;
 
         font-size: 12px;
+
         font-weight: 600;
 
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+
+        letter-spacing: 0.06em;
 
         margin-bottom: 8px;
     }
@@ -147,34 +172,49 @@ st.markdown(
         color: #111827 !important;
 
         font-size: 28px;
+
         font-weight: 700;
     }
 
 
-    /* =====================================================
+    /* ============================================================
        FORMS
-       ===================================================== */
+       ============================================================ */
 
     div[data-testid="stForm"] {
         background-color: #ffffff;
 
-        border: 1px solid #e5e7eb;
+        border: 1px solid #e2e8f0;
+
         border-radius: 10px;
 
         padding: 22px;
 
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        box-shadow:
+            0 3px 10px rgba(15, 23, 42, 0.035);
     }
 
 
-    /* =====================================================
-       INPUTS
-       ===================================================== */
+    /* ============================================================
+       FORM LABELS
+       ============================================================ */
+
+    label {
+        color: #1f2937 !important;
+    }
+
+
+    /* ============================================================
+       TEXT INPUTS
+       ============================================================ */
 
     input,
     textarea {
-        color: #111827 !important;
         background-color: #ffffff !important;
+
+        color: #111827 !important;
+
+        border-radius: 6px !important;
     }
 
     input::placeholder,
@@ -183,15 +223,54 @@ st.markdown(
     }
 
 
-    /* =====================================================
+    /* ============================================================
+       SELECT BOXES
+       ============================================================ */
+
+    div[data-baseweb="select"] > div {
+        background-color: #ffffff;
+
+        border-radius: 6px;
+
+        border-color: #d1d5db;
+    }
+
+
+    /* ============================================================
        BUTTONS
-       ===================================================== */
+       ============================================================ */
 
     .stButton button {
         background-color: #172033;
+
         color: #ffffff !important;
 
         border: 1px solid #172033;
+
+        border-radius: 6px;
+
+        padding: 8px 18px;
+
+        font-weight: 600;
+
+        transition: 0.2s ease;
+    }
+
+    .stButton button:hover {
+        background-color: #26344d;
+
+        border-color: #26344d;
+
+        color: #ffffff !important;
+    }
+
+    .stFormSubmitButton button {
+        background-color: #172033;
+
+        color: #ffffff !important;
+
+        border: 1px solid #172033;
+
         border-radius: 6px;
 
         padding: 8px 18px;
@@ -199,91 +278,125 @@ st.markdown(
         font-weight: 600;
     }
 
-    .stButton button:hover {
+    .stFormSubmitButton button:hover {
         background-color: #26344d;
+
         border-color: #26344d;
+
         color: #ffffff !important;
     }
 
-    .stFormSubmitButton button {
-        background-color: #172033;
-        color: #ffffff !important;
 
-        border: 1px solid #172033;
+    /* ============================================================
+       DATA TABLE
+       ============================================================ */
+
+    div[data-testid="stDataFrame"] {
+        background-color: #ffffff;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 8px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 2px 8px rgba(15, 23, 42, 0.03);
+    }
+
+
+    /* ============================================================
+       STREAMLIT METRIC
+       ============================================================ */
+
+    div[data-testid="stMetric"] {
+        background-color: #ffffff;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 8px;
+
+        padding: 15px;
+
+        box-shadow:
+            0 2px 8px rgba(15, 23, 42, 0.03);
+    }
+
+    div[data-testid="stMetricLabel"] {
+        color: #64748b !important;
+    }
+
+    div[data-testid="stMetricValue"] {
+        color: #111827 !important;
+    }
+
+
+    /* ============================================================
+       DOWNLOAD BUTTON
+       ============================================================ */
+
+    .stDownloadButton button {
+        background-color: #ffffff;
+
+        color: #172033 !important;
+
+        border: 1px solid #cbd5e1;
+
         border-radius: 6px;
 
         font-weight: 600;
     }
 
-    .stFormSubmitButton button:hover {
-        background-color: #26344d;
-        border-color: #26344d;
+    .stDownloadButton button:hover {
+        background-color: #f8fafc;
+
+        border-color: #172033;
+
+        color: #172033 !important;
     }
 
 
-    /* =====================================================
-       SELECT BOX
-       ===================================================== */
-
-    div[data-baseweb="select"] > div {
-        background-color: #ffffff;
-        border-color: #d1d5db;
-        border-radius: 6px;
-    }
-
-
-    /* =====================================================
-       TABLE
-       ===================================================== */
-
-    div[data-testid="stDataFrame"] {
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-
-    /* =====================================================
-       METRICS
-       ===================================================== */
-
-    div[data-testid="stMetric"] {
-        background-color: #ffffff;
-
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-
-        padding: 15px;
-    }
-
-
-    /* =====================================================
-       DIVIDER
-       ===================================================== */
+    /* ============================================================
+       DIVIDERS
+       ============================================================ */
 
     hr {
         border: none;
-        border-top: 1px solid #e5e7eb;
+
+        border-top: 1px solid #e2e8f0;
+
         margin: 25px 0;
     }
 
 
-    /* =====================================================
+    /* ============================================================
        ALERTS
-       ===================================================== */
+       ============================================================ */
 
     div[data-testid="stAlert"] {
         border-radius: 7px;
     }
 
 
-    /* =====================================================
-       DOWNLOAD BUTTON
-       ===================================================== */
+    /* ============================================================
+       RESPONSIVE SPACING
+       ============================================================ */
 
-    .stDownloadButton button {
-        border-radius: 6px;
-        font-weight: 600;
+    @media (max-width: 768px) {
+
+        .block-container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .app-title {
+            font-size: 24px;
+        }
+
+        .metric-value {
+            font-size: 24px;
+        }
+
     }
 
     </style>
