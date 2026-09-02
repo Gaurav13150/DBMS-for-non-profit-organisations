@@ -21,7 +21,6 @@ st.set_page_config(
 # ============================================================
 
 st.markdown(
-    """
     <style>
 
     /* =====================================================
@@ -373,7 +372,7 @@ if page == "Dashboard":
                     {format_currency(total_expenses)}
                 </div>
             </div>
-            """,
+            ,
             unsafe_allow_html=True
         )
 
