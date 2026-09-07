@@ -24,385 +24,262 @@ st.markdown(
     """
     <style>
 
-    /* ============================================================
-       GLOBAL APPLICATION
-       ============================================================ */
+    /* ---------- Global ---------- */
 
     .stApp {
-        background-color: #f4f6f8;
-        color: #111827;
+        background-color: #f7f8fa;
     }
 
-    .block-container {
-        max-width: 1400px;
-        padding-top: 2rem;
-        padding-bottom: 3rem;
+    .main {
+        color: #1f2937;
     }
 
-    /* Main headings */
-    h1, h2, h3, h4, h5, h6 {
-        color: #111827 !important;
+    h1, h2, h3, h4 {
+        color: #172033 !important;
         font-weight: 600 !important;
     }
 
-    /* Normal text */
-    p {
-        color: #374151;
+    p, label, span, div {
+        font-family: "Inter", "Segoe UI", sans-serif;
     }
 
-
-    /* ============================================================
-       SIDEBAR
-       ============================================================ */
+    /* ---------- Sidebar ---------- */
 
     section[data-testid="stSidebar"] {
         background-color: #172033;
     }
 
-    section[data-testid="stSidebar"] p {
-        color: #cbd5e1 !important;
-    }
-
-    section[data-testid="stSidebar"] label {
+    section[data-testid="stSidebar"] * {
         color: #ffffff !important;
     }
 
-    section[data-testid="stSidebar"] .stMarkdown {
-        color: #ffffff !important;
+    section[data-testid="stSidebar"] .stRadio label {
+        padding: 8px 5px;
+        font-size: 14px;
     }
 
-    section[data-testid="stSidebar"] hr {
-        border-color: rgba(255, 255, 255, 0.12);
-    }
-
-
-    /* ============================================================
-       APPLICATION HEADER
-       ============================================================ */
+    /* ---------- Header ---------- */
 
     .app-header {
-        background-color: #ffffff;
-
-        border: 1px solid #e2e8f0;
-        border-left: 5px solid #a7834f;
-
-        border-radius: 10px;
-
-        padding: 22px 26px;
-
-        margin-bottom: 26px;
-
-        box-shadow:
-            0 3px 10px rgba(15, 23, 42, 0.05);
+        padding: 8px 0 18px 0;
+        border-bottom: 1px solid #e2e5e9;
+        margin-bottom: 25px;
     }
 
     .app-title {
-        color: #111827 !important;
-
         font-size: 30px;
-        font-weight: 700;
-
-        line-height: 1.2;
-
-        margin-bottom: 6px;
+        font-weight: 650;
+        color: #172033;
+        margin-bottom: 4px;
     }
 
     .app-subtitle {
-        color: #64748b !important;
-
         font-size: 14px;
-
-        line-height: 1.5;
+        color: #6b7280;
     }
 
-
-    /* ============================================================
-       SECTION TITLES
-       ============================================================ */
-
-    .section-title {
-        color: #111827 !important;
-
-        font-size: 19px;
-        font-weight: 600;
-
-        margin-top: 24px;
-        margin-bottom: 15px;
-
-        padding-left: 11px;
-
-        border-left: 3px solid #a7834f;
-    }
-
-
-    /* ============================================================
-       DASHBOARD METRIC CARDS
-       ============================================================ */
+    /* ---------- Cards ---------- */
 
     .metric-card {
-        background-color: #ffffff;
-
-        border: 1px solid #e2e8f0;
-
+        background: #ffffff;
+        border: 1px solid #e2e5e9;
         border-radius: 10px;
-
-        padding: 20px;
-
-        min-height: 115px;
-
-        box-shadow:
-            0 3px 10px rgba(15, 23, 42, 0.04);
+        padding: 18px 20px;
+        min-height: 120px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.03);
     }
 
     .metric-label {
-        color: #64748b !important;
-
-        font-size: 12px;
-
-        font-weight: 600;
-
-        text-transform: uppercase;
-
-        letter-spacing: 0.06em;
-
+        color: #6b7280;
+        font-size: 13px;
         margin-bottom: 8px;
     }
 
     .metric-value {
-        color: #111827 !important;
-
+        color: #172033;
         font-size: 28px;
-
-        font-weight: 700;
+        font-weight: 650;
     }
 
+    /* ---------- Section ---------- */
 
-    /* ============================================================
-       FORMS
-       ============================================================ */
-
-    div[data-testid="stForm"] {
-        background-color: #ffffff;
-
-        border: 1px solid #e2e8f0;
-
-        border-radius: 10px;
-
-        padding: 22px;
-
-        box-shadow:
-            0 3px 10px rgba(15, 23, 42, 0.035);
-    }
-
-
-    /* ============================================================
-       FORM LABELS
-       ============================================================ */
-
-    label {
-        color: #1f2937 !important;
-    }
-
-
-    /* ============================================================
-       TEXT INPUTS
-       ============================================================ */
-
-    input,
-    textarea {
-        background-color: #ffffff !important;
-
-        color: #111827 !important;
-
-        border-radius: 6px !important;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-        color: #9ca3af !important;
-    }
-
-
-    /* ============================================================
-       SELECT BOXES
-       ============================================================ */
-
-    div[data-baseweb="select"] > div {
-        background-color: #ffffff;
-
-        border-radius: 6px;
-
-        border-color: #d1d5db;
-    }
-
-
-    /* ============================================================
-       BUTTONS
-       ============================================================ */
-
-    .stButton button {
-        background-color: #172033;
-
-        color: #ffffff !important;
-
-        border: 1px solid #172033;
-
-        border-radius: 6px;
-
-        padding: 8px 18px;
-
+    .section-title {
+        color: #172033;
+        font-size: 20px;
         font-weight: 600;
-
-        transition: 0.2s ease;
+        margin-top: 20px;
+        margin-bottom: 15px;
     }
 
-    .stButton button:hover {
-        background-color: #26344d;
+    /* ---------- Buttons ---------- */
 
-        border-color: #26344d;
-
-        color: #ffffff !important;
-    }
-
-    .stFormSubmitButton button {
-        background-color: #172033;
-
-        color: #ffffff !important;
-
-        border: 1px solid #172033;
-
+    .stButton > button {
         border-radius: 6px;
-
-        padding: 8px 18px;
-
-        font-weight: 600;
+        font-weight: 500;
+        border: 1px solid #cbd1d9;
     }
 
-    .stFormSubmitButton button:hover {
-        background-color: #26344d;
+    /* ---------- Tables ---------- */
 
-        border-color: #26344d;
-
-        color: #ffffff !important;
+    .dataframe {
+        border: 1px solid #e2e5e9;
     }
 
-
-    /* ============================================================
-       DATA TABLE
-       ============================================================ */
-
-    div[data-testid="stDataFrame"] {
-        background-color: #ffffff;
-
-        border: 1px solid #e2e8f0;
-
-        border-radius: 8px;
-
-        overflow: hidden;
-
-        box-shadow:
-            0 2px 8px rgba(15, 23, 42, 0.03);
-    }
-
-
-    /* ============================================================
-       STREAMLIT METRIC
-       ============================================================ */
-
-    div[data-testid="stMetric"] {
-        background-color: #ffffff;
-
-        border: 1px solid #e2e8f0;
-
-        border-radius: 8px;
-
-        padding: 15px;
-
-        box-shadow:
-            0 2px 8px rgba(15, 23, 42, 0.03);
-    }
-
-    div[data-testid="stMetricLabel"] {
-        color: #64748b !important;
-    }
-
-    div[data-testid="stMetricValue"] {
-        color: #111827 !important;
-    }
-
-
-    /* ============================================================
-       DOWNLOAD BUTTON
-       ============================================================ */
-
-    .stDownloadButton button {
-        background-color: #ffffff;
-
-        color: #172033 !important;
-
-        border: 1px solid #cbd5e1;
-
-        border-radius: 6px;
-
-        font-weight: 600;
-    }
-
-    .stDownloadButton button:hover {
-        background-color: #f8fafc;
-
-        border-color: #172033;
-
-        color: #172033 !important;
-    }
-
-
-    /* ============================================================
-       DIVIDERS
-       ============================================================ */
-
-    hr {
-        border: none;
-
-        border-top: 1px solid #e2e8f0;
-
-        margin: 25px 0;
-    }
-
-
-    /* ============================================================
-       ALERTS
-       ============================================================ */
+    /* ---------- Alerts ---------- */
 
     div[data-testid="stAlert"] {
         border-radius: 7px;
-    }
-
-
-    /* ============================================================
-       RESPONSIVE SPACING
-       ============================================================ */
-
-    @media (max-width: 768px) {
-
-        .block-container {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .app-title {
-            font-size: 24px;
-        }
-
-        .metric-value {
-            font-size: 24px;
-        }
-
     }
 
     </style>
     """,
     unsafe_allow_html=True
 )
+
+
+# ============================================================
+# SUPABASE CONNECTION
+# ============================================================
+
+try:
+    SUPABASE_URL = st.secrets["SUPABASE_URL"]
+    SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
+
+    supabase = create_client(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    )
+
+except Exception as e:
+    st.error("Unable to connect to the Supabase database.")
+    st.info(
+        "Check that SUPABASE_URL and SUPABASE_KEY are correctly "
+        "configured in Streamlit Secrets."
+    )
+    st.stop()
+
+
+# ============================================================
+# HELPER FUNCTIONS
+# ============================================================
+
+def get_events():
+    response = (
+        supabase
+        .table("events")
+        .select("*")
+        .order("event_date", desc=True)
+        .execute()
+    )
+    return response.data or []
+
+
+def get_people():
+    response = (
+        supabase
+        .table("volunteers_staff")
+        .select("*")
+        .order("name")
+        .execute()
+    )
+    return response.data or []
+
+
+def get_expenses():
+    response = (
+        supabase
+        .table("expenses")
+        .select("*")
+        .order("expense_date", desc=True)
+        .execute()
+    )
+    return response.data or []
+
+
+def get_resources():
+    response = (
+        supabase
+        .table("resources")
+        .select("*")
+        .order("resource_id", desc=True)
+        .execute()
+    )
+    return response.data or []
+
+
+def format_currency(value):
+    return f"₹{value:,.2f}"
+
+
+def safe_float(value):
+    try:
+        return float(value)
+    except:
+        return 0.0
+
+
+# ============================================================
+# SIDEBAR
+# ============================================================
+
+st.sidebar.markdown(
+    """
+    <div style="padding: 10px 0 25px 0;">
+        <div style="
+            font-size:20px;
+            font-weight:650;
+            color:white;
+        ">
+            DevatmaShakti Ashram
+        </div>
+
+        <div style="
+            font-size:12px;
+            color:#b8c0cc;
+            margin-top:4px;
+        ">
+            Event Management System
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+page = st.sidebar.radio(
+    "Navigation",
+    [
+        "Dashboard",
+        "Events",
+        "Volunteers & Staff",
+        "Expenses",
+        "Resources",
+        "Reports & Analytics"
+    ]
+)
+
+st.sidebar.markdown("---")
+
+st.sidebar.caption("Database: Supabase PostgreSQL")
+st.sidebar.caption("Application: Streamlit")
+
+
+# ============================================================
+# PAGE HEADER
+# ============================================================
+
+st.markdown(
+    f"""
+    <div class="app-header">
+        <div class="app-title">{page}</div>
+        <div class="app-subtitle">
+            DevatmaShakti Ashram Event Management System
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
 # ============================================================
 # DASHBOARD
 # ============================================================
@@ -477,17 +354,17 @@ if page == "Dashboard":
         )
 
     with c4:
-    st.markdown(
-        f"""
-        <div class="metric-card">
-            <div class="metric-label">Total Expenses</div>
-            <div class="metric-value">
-                {format_currency(total_expenses)}
+        st.markdown(
+            f"""
+            <div class="metric-card">
+                <div class="metric-label">Total Expenses</div>
+                <div class="metric-value">
+                    {format_currency(total_expenses)}
+                </div>
             </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+            """,
+            unsafe_allow_html=True
+        )
 
     st.markdown("<br>", unsafe_allow_html=True)
 
